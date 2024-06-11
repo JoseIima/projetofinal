@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Gerenciamento de Clientes</h1>
+    <nav>
+        <ul>
+            <li><a href="/clientes/cadastro">Cadastro</a></li>
+            <li><a href="/clientes">Consulta</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h2>Lista de Clientes</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nome}"></td>
+                <td th:text="${cliente.email}"></td>
+                <td th:text="${cliente.telefone}"></td>
+                <td>
+                    <a th:href="@{'/clientes/alteracao/' + ${cliente.id}}">Alterar</a>
+                    <a th:href="@{'/clientes/exclusao/' + ${cliente.id}}">Excluir</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

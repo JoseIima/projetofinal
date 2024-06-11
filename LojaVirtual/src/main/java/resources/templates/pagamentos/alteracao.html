@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração de Pagamento</title>
+    <link rel="stylesheet" href="/css/pagamentos.css">
+</head>
+<body>
+    <h1>Alteração de Pagamento</h1>
+    <form th:action="@{/pagamentos/alteracao}" th:object="${pagamento}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" th:field="*{cliente.id}">
+            <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+        </select><br><br>
+        <label for="produto">Produto:</label>
+        <select id="produto" th:field="*{produto.id}">
+            <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nome}"></option>
+        </select><br><br>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" th:field="*{valor}" step="0.01" required><br><br>
+        <label for="data">Data:</label>
+        <input type="date" id="data" th:field="*{data}" required><br><br>
+        <input type="submit" value="Alterar">
+    </form>
+</body>
+</html>

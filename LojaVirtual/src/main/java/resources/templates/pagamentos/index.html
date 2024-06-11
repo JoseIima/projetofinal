@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamentos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Gerenciamento de Pagamentos</h1>
+    <nav>
+        <ul>
+            <li><a href="/pagamentos/cadastro">Cadastro</a></li>
+            <li><a href="/pagamentos">Consulta</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h2>Lista de Pagamentos</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+            <tr th:each="pagamento : ${pagamentos}">
+                <td th:text="${pagamento.id}"></td>
+                <td th:text="${pagamento.cliente.nome}"></td>
+                <td th:text="${pagamento.produto.nome}"></td>
+                <td th:text="${pagamento.valor}"></td>
+                <td th:text="${pagamento.data}"></td>
+                <td>
+                    <a th:href="@{'/pagamentos/alteracao/' + ${pagamento.id}}">Alterar</a>
+                    <a th:href="@{'/pagamentos/exclusao/' + ${pagamento.id}}">Excluir</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

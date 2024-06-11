@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Pagamento</title>
+    <link rel="stylesheet" href="/css/pagamentos.css">
+</head>
+<body>
+    <h1>Consulta de Pagamento</h1>
+    <div>
+        <p>ID: <span th:text="${pagamento.id}"></span></p>
+        <p>Cliente: <span th:text="${pagamento.cliente.nome}"></span></p>
+        <p>Produto: <span th:text="${pagamento.produto.nome}"></span></p>
+        <p>Valor: <span th:text="${pagamento.valor}"></span></p>
+        <p>Data: <span th:text="${pagamento.data}"></span></p>
+    </div>
+</body>
+</html>
